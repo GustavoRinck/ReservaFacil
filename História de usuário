@@ -1,0 +1,13 @@
+Como um professor, eu quero reservar uma sala em um horário disponível para que possa ministrar minha aula sem conflitos.
+
+Como um aluno, eu quero reservar uma sala de estudo para que possa estudar em grupo em um ambiente adequado.
+
+Como um professor, eu quero alterar a minha reserva de sala para que possa mudar o horário caso tenha um imprevisto.
+
+Como um aluno, eu quero cancelar uma reserva que não irei usar para que outras pessoas possam utilizar a sala.
+
+Como um usuário, eu quero ver todas as minhas reservas ativas para que possa me organizar melhor.
+
+Como um administrador, eu quero ver todas as reservas feitas na escola para que possa monitorar o uso das salas.
+
+Como um administrador, eu quero ver quais salas são mais reservadas para que possa planejar a manutenção ou expansão de salas.
