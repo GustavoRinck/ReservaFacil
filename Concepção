@@ -1,0 +1,8 @@
+Integrantes: Gustavo,Jorge
+
+Nome do APP: Reserva Fácil
+
+Descrição do Problema: Uma escola vem enfrentando problemas com a reserva de salas, causando conflitos de horário, uso da sala sem agendamento. Assim tendo falta de controle sobre as salas.
+
+Descrição do Problema: A solução do problema será feita pela criação de um sistema em que o usuário(aluno e professores da instituição) pode fazer o agendamento do uso de uma sala em um horário disponível, o sistema também permitirá a desistência ou alteração de reserva. Ele poderá também mostrar as reservas feitas ao administrador do sistema, e as salas com mais reservas. Sendo que seu escopo é resolver o problema de reservas de salas de uma instituição.
+Avaliação máxima:8 (1) 
