@@ -1,0 +1,61 @@
+classDiagram
+    class Usuario {
+        -id: int
+        -nome: string
+        -email: string
+        -senha: string
+        +autenticar(): boolean
+        +visualizarReservas(): void
+    }
+
+    class Professor {
+        +reservarSala(sala: Sala, horario: Horario): Reserva
+        +alterarReserva(reserva: Reserva, novoHorario: Horario): void
+                +cancelarReserva(reserva: Reserva): void
+
+    }
+
+    class Aluno {
+        +reservarSala(sala: Sala, horario: Horario): Reserva
+                +alterarReserva(reserva: Reserva, novoHorario: Horario): void
+
+        +cancelarReserva(reserva: Reserva): void
+    }
+
+    class Administrador {
+        +visualizarTodasReservas(): List~Reserva~
+        +visualizarSalasMaisReservadas(): List~Sala~
+    }
+
+    class Sala {
+        -id: int
+        -nome: string
+        -capacidade: int
+        +estaDisponivel(horario: Horario): boolean
+    }
+
+    class Reserva {
+        -id: int
+        -usuario: Usuario
+        -sala: Sala
+        -horario: Horario
+        +cancelar(): void
+        +alterar(horario: Horario): void
+    }
+
+    class Horario {
+        -data: date
+        -horaInicio: time
+        -horaFim: time
+        +conflitaCom(outro: Horario): boolean
+    }
+
+    %% Heranças
+    Usuario <|-- Professor
+    Usuario <|-- Aluno
+    Usuario <|-- Administrador
+
+    %% Relacionamentos
+    Sala "1" --> "0..*" Reserva
+    Usuario "1" --> "0..*" Reserva
+    Reserva "1" --> "1" Horario
