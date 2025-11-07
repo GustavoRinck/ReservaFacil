@@ -1,0 +1,47 @@
+Caso de Uso Fazer Reserva
+
+Identificação:
+
+    Nome: Fazer Reserva
+    Ator Principal: Usuário (Professor ou Aluno)
+    Atores Secundários: Sistema de Reserva, Administrador
+
+Pré-condições:
+
+    O usuário deve estar autenticado no sistema
+    O usuário deve ter permissões para fazer reservas
+
+Fluxo Principal:
+
+    O usuário seleciona a opção "Fazer Reserva"
+    O sistema exibe o calendário com datas disponíveis
+    O usuário seleciona a data desejada
+    O sistema exibe as salas disponíveis para a data selecionada
+    O usuário seleciona uma sala
+    O sistema exibe os horários disponíveis para a sala selecionada
+    O usuário seleciona o horário desejado (início e fim)
+    O usuário confirma os dados da reserva
+    O sistema valida a disponibilidade do horário e sala
+    O sistema registra a reserva no banco de dados
+    O sistema envia confirmação por email para o usuário
+    O caso de uso termina com sucesso
+
+Fluxos Alternativos:
+
+    FA1: Horário indisponível
+
+        No passo 9, se o horário não estiver disponível
+        O sistema notifica o usuário
+        Retorna ao passo 6
+
+    FA2: Dados inválidos
+
+        No passo 8, se dados estiverem incorretos
+        O sistema solicita correção
+        Retorna ao passo 3
+
+Pós-condições:
+
+    A reserva é registrada no sistema
+    O status da sala é atualizado para "reservada" no período selecionado
+    O usuário recebe confirmação da reserva
