@@ -16,7 +16,6 @@ classDiagram
     }
 
     class Aluno {
-        +reservarSala(sala: Sala, horario: Horario): Reserva
                 +alterarReserva(reserva: Reserva, novoHorario: Horario): void
 
         +cancelarReserva(reserva: Reserva): void
@@ -59,3 +58,4 @@ classDiagram
     Sala "1" --> "0..*" Reserva
     Usuario "1" --> "0..*" Reserva
     Reserva "1" --> "1" Horario
+
