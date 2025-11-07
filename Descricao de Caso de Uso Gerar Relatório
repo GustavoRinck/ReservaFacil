@@ -1,0 +1,48 @@
+Caso de Uso Gerar Relatório
+
+Identificação:
+
+    Nome: Gerar Relatório
+    Ator Principal: Administrador
+    Atores Secundários: Sistema de Reserva, Banco de Dados
+
+Pré-condições:
+
+    O administrador deve estar autenticado no sistema
+    O administrador deve ter privilégios de acesso a relatórios
+
+Fluxo Principal:
+
+    O administrador acessa o módulo de relatórios
+    O sistema exibe os tipos de relatório disponíveis:
+        Relatório de salas mais usadas
+        Relatório de reservas por período
+        Relatório de utilização por usuário
+
+    O administrador seleciona o tipo de relatório desejado
+    O sistema solicita os parâmetros do relatório (período, filtros)
+    O administrador define os parâmetros desejados
+    O administrador confirma a geração do relatório
+    O sistema coleta os dados do banco de dados
+    O sistema processa e formata os dados
+    O sistema gera o relatório em formato PDF/Excel
+    O sistema disponibiliza o relatório para download
+    O caso de uso termina com sucesso
+
+Fluxos Alternativos:
+
+    FA1: Nenhum dado encontrado
+        No passo 7, se não houver dados para o período selecionado
+        O sistema informa "Nenhum dado encontrado"
+        Retorna ao passo 4
+
+    FA2: Exportar para diferentes formatos
+        No passo 9, o administrador seleciona formato diferente
+        O sistema gera nos formatos CSV, PDF ou Excel
+        Continua no passo 10
+
+Pós-condições:
+
+    O relatório é gerado com os dados solicitados
+    O relatório fica disponível para download
+    O administrador pode visualizar e distribuir o relatório
