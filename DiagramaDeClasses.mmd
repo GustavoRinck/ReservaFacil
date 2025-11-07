@@ -1,63 +1,76 @@
 classDiagram
     class Usuario {
-        -id: int
-        -nome: string
-        -email: string
-        -senha: string
-        +autenticar(): boolean
-        +visualizarReservas(): void
+        -String id
+        -String nome
+        -String email
+        -String tipo
+        +fazerReserva()
+        +cancelarReserva()
+        +verReservas()
     }
 
     class Professor {
-        +reservarSala(sala: Sala, horario: Horario): Reserva
-        +alterarReserva(reserva: Reserva, novoHorario: Horario): void
-                +cancelarReserva(reserva: Reserva): void
-
+        -String departamento
+        -String matricula
     }
 
     class Aluno {
-        +reservarSala(sala: Sala, horario: Horario): Reserva
-                +alterarReserva(reserva: Reserva, novoHorario: Horario): void
-
-        +cancelarReserva(reserva: Reserva): void
+        -String curso
+        -String matricula
+        -Integer semestre
     }
 
     class Administrador {
-        +visualizarTodasReservas(): List~Reserva~
-        +visualizarSalasMaisReservadas(): List~Sala~
-    }
-
-    class Sala {
-        -id: int
-        -nome: string
-        -capacidade: int
-        +estaDisponivel(horario: Horario): boolean
+        -String nivelAcesso
+        +gerarRelatorio()
+        +gerenciarReservas()
+        +armazenarReserva()
     }
 
     class Reserva {
-        -id: int
-        -usuario: Usuario
-        -sala: Sala
-        -horario: Horario
-        +cancelar(): void
-        +alterar(horario: Horario): void
+        -String idReserva
+        -Date data
+        -Time horarioInicio
+        -Time horarioFim
+        -String status
+        +criarReserva()
+        +cancelarReserva()
+        +alterarHorario()
     }
 
-    class Horario {
-        -data: date
-        -horaInicio: time
-        -horaFim: time
-        +conflitaCom(outro: Horario): boolean
+    class Sala {
+        -String idSala
+        -String numero
+        -String localizacao
+        -Integer capacidade
+        -String[] recursos
+        -Integer usoCount
+        +verDisponibilidade()
+        +incrementarUso()
     }
 
-    %% Heranças
+    class Relatorio {
+        -String idRelatorio
+        -Date dataGeracao
+        -String tipo
+        +gerarRelatorioSalas()
+        +gerarRelatorioReservas()
+    }
+
+    class SistemaReserva {
+        -List~Reserva~ reservas
+        -List~Sala~ salas
+        +armazenarReserva()
+        +verSalasMaisUsadas()
+        +validarHorario()
+    }
+
     Usuario <|-- Professor
     Usuario <|-- Aluno
     Usuario <|-- Administrador
-
-    %% Relacionamentos
-    Sala "1" --> "0..*" Reserva
-    Usuario "1" --> "0..*" Reserva
-    Reserva "1" --> "1" Horario
-
-
+    Usuario "1" -- "*" Reserva
+    Reserva "1" -- "1" Sala
+    SistemaReserva "1" -- "*" Reserva
+    SistemaReserva "1" -- "*" Sala
+    Administrador --> Relatorio
+    SistemaReserva --> Relatorio
