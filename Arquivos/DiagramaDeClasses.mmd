@@ -1,0 +1,87 @@
+classDiagram
+
+class Usuario {
+    -String id
+    -String nome
+    -String email
+    -String tipo
+    +fazerReserva(Reserva reserva) void
+    +cancelarReserva(String idReserva) boolean
+    +verReservas() List~Reserva~
+}
+
+class Professor {
+    -String departamento
+    -String matricula
+}
+
+class Aluno {
+    -String curso
+    -String matricula
+    -Integer semestre
+}
+
+class Administrador {
+    -String nivelAcesso
+    +gerarRelatorio(String tipo) Relatorio
+    +gerenciarReservas() void
+    +armazenarReserva(Reserva reserva) boolean
+}
+
+class Reserva {
+    -String idReserva
+    -Date data
+    -Time horarioInicio
+    -Time horarioFim
+    -String status
+    +criarReserva() boolean
+    +cancelarReserva() boolean
+    +alterarHorario(Time novoInicio, Time novoFim) boolean
+}
+
+class Sala {
+    -String idSala
+    -String numero
+    -String localizacao
+    -Integer capacidade
+    -String[] recursos
+    -Integer usoCount
+    +verDisponibilidade(Date data, Time inicio, Time fim) boolean
+    +incrementarUso() void
+}
+
+class Relatorio {
+    -String idRelatorio
+    -Date dataGeracao
+    -String tipo
+    +gerarRelatorioSalas(List~Sala~ salas) String
+    +gerarRelatorioReservas(List~Reserva~ reservas) String
+}
+
+class SistemaReserva {
+    -List~Reserva~ reservas
+    -List~Sala~ salas
+    +armazenarReserva(Reserva reserva) boolean
+    +verSalasMaisUsadas() List~Sala~
+    +validarHorario(Sala sala, Date data, Time inicio, Time fim) boolean
+}
+
+%% --------------------
+%% Herança
+%% --------------------
+Usuario <|-- Professor
+Usuario <|-- Aluno
+Usuario <|-- Administrador
+
+%% --------------------
+%% Multiplicidades
+%% --------------------
+Usuario "1" --> "*" Reserva : "faz"
+Reserva "1" --> "1" Sala : "usa"
+
+SistemaReserva "1" --> "*" Reserva
+SistemaReserva "1" --> "*" Sala
+Administrador "1" --> "*" Relatorio : "gera"
+SistemaReserva --> Relatorio : "fornece dados"
+
+
