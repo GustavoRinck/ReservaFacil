@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dossiê de Análise - Reserva Fácil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <!-- Navegação / Cabeçalho -->
+    <nav class="bg-white border-b border-slate-200 fixed w-full z-10 no-print">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="font-bold text-xl text-slate-800">Reserva Fácil</div>
+        <div class="text-sm text-slate-500">Dossiê de Análise</div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 pt-24 pb-12 max-w-4xl">
+      <!-- Capa -->
+      <header
+        class="text-center mb-16 py-10 bg-white rounded-xl shadow-sm border border-slate-100"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          Reserva Fácil
+        </h1>
+        <p class="text-xl text-slate-600">
+          Dossiê de Análise e Projeto de Sistemas
+        </p>
+        <div
+          class="mt-8 flex justify-center gap-4 text-sm font-medium text-slate-500"
+        >
+          <span>Gustavo </span> • <span>Jorge</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-400">
+          IFSP - 2025 Segundo Semestre
+        </div>
+      </header>
+
+      <!-- Seção 1: O Problema e Solução -->
+      <section class="mb-12">
+        <h2
+          class="text-2xl font-bold text-slate-800 border-l-4 border-blue-600 pl-4 mb-6"
+        >
+          1. Concepção do Projeto
+        </h2>
+        <div
+          class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 space-y-6"
+        >
+          <div>
+            <h3 class="font-bold text-lg text-slate-700 mb-2">O Problema</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Uma escola vem enfrentando problemas com a reserva de salas,
+              causando conflitos de horário, uso da sala sem agendamento. Assim
+              tendo falta de controle sobre as salas.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-700 mb-2">A Solução</h3>
+            <p class="text-slate-600 leading-relaxed">
+              A solução do problema e a criação de um sistema em que o usuário(aluno e professores da instituição) pode fazer o agendamento do uso de uma sala em um horário disponível, o sistema também permitirá a desistência ou alteração de reserva.  
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção 2: Requisitos -->
+      <section class="mb-12">
+        <h2
+          class="text-2xl font-bold text-slate-800 border-l-4 border-green-600 pl-4 mb-6"
+        >
+          2. Requisitos e Atores
+        </h2>
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-bold text-slate-700 mb-3">Atores</h3>
+              <ul class="list-disc list-inside text-slate-600 space-y-2">
+                <li><strong>Usuário:</strong> É a classe geral que representa qualquer pessoa que usa o sistema. Possui ações comuns como fazer, alterar e cancelar reservas.</li>
+                <li><strong>Professor:</strong> Usuário da instituição responsável por ministrar aulas.</li>
+                <li><strong>Aluno:</strong> Usuário que utiliza o sistema para estudo.</li>
+                <li><strong>Administrador:</strong> Responsável pela gestão do sistema.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-3">
+                Histórias de Usuário (Principais)
+              </h3>
+              <ul class="text-slate-600 space-y-3 text-sm">
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>professor</strong>, eu quero
+                  <strong>reservar uma sala em um horário disponível</strong> para que
+                  <strong>possa ministrar minha aula sem conflitos</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>aluno</strong>, eu quero
+                  <strong>reservar uma sala de estudo</strong> para que
+                  <strong>possa estudar em grupo em um ambiente adequado</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>professor</strong>, eu quero
+                  <strong>alterar a minha reserva de sala</strong> para que
+                  <strong>possa mudar o horário caso tenha um imprevisto</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>professor</strong>, eu quero
+                  <strong>cancelar a minha reserva de sala</strong> para que
+                  <strong>possa deixá-la disponível caso eu não necessite mais dela</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>aluno</strong>, eu quero
+                  <strong>cancelar uma reserva que não irei usar</strong> para que
+                  <strong>outras pessoas possam utilizar a sala</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>usuário</strong>, eu quero
+                  <strong>ver todas as minhas reservas ativas</strong> para que
+                  <strong>possa me organizar melhor</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>administrador</strong>, eu quero
+                  <strong>ver todas as reservas feitas na escola</strong> para que
+                  <strong>possa monitorar o uso das salas</strong>."
+                </li>
+                <li class="bg-slate-50 p-3 rounded border border-slate-100">
+                  "Como um <strong>administrador</strong>, eu quero
+                  <strong>ver quais salas são mais reservadas</strong> para que
+                  <strong>possa planejar a manutenção ou expansão de salas</strong>."
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção 3: Modelagem Funcional -->
+      <section class="mb-12">
+        <h2
+          class="text-2xl font-bold text-slate-800 border-l-4 border-purple-600 pl-4 mb-6"
+        >
+          3. Modelagem Funcional
+        </h2>
+
+        <!-- 3.1 Diagrama de Casos de Uso -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold text-slate-700 mb-4">
+            3.1. Diagrama de Casos de Uso
+          </h3>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+            <!-- Imagem do Diagrama -->
+            <div class="flex justify-center items-center">
+              <img 
+                src="src/DiagramaCasoDeUso.drawio(2).png" 
+                alt="Diagrama de Casos de Uso - Sistema Reserva Fácil"
+                class="max-w-full h-auto rounded-lg border border-slate-200"
+                onerror="this.style.display='none'; document.getElementById('fallback-diagram').style.display='block';"
+              >
+            </div>
+            
+            <!-- Fallback caso a imagem não carregue -->
+            <div id="fallback-diagram" style="display: none;">
+              <div class="bg-slate-100 rounded-lg h-64 flex flex-col items-center justify-center border-2 border-dashed border-slate-300 text-slate-400 p-4">
+                <svg class="w-12 h-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <p>Diagrama de Casos de Uso não carregado</p>
+                <p class="text-sm mt-2">Certifique-se de que o arquivo "src/DiagramaCasoDeUso.drawio(2).png" está na mesma pasta</p>
+              </div>
+            </div>
+
+            <!-- Descrição do Diagrama -->
+         
+            
+            <p class="text-sm text-slate-500 mt-2 italic text-center">
+              Figura 1: Diagrama de Casos de Uso - Visão geral das funcionalidades e atores do sistema.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3.2 Descrição de Casos de Uso -->
+     <div class="mb-8">
+  <h3 class="text-xl font-bold text-slate-700 mb-4">
+    3.2. Descrição de Caso de Uso (Detalhada)
+  </h3>
+  
+  <!-- UC-01: Reservar Sala -->
+  <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 space-y-6 mb-6">
+    <!-- Cabeçalho do UC -->
+    <div class="border-b pb-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-mono bg-slate-200 px-2 py-1 rounded text-slate-700">UC-01</span>
+        <span class="text-sm text-slate-500">Prioridade: Alta</span>
+      </div>
+      <h4 class="text-xl font-bold text-slate-800">Reservar Sala</h4>
+      <p class="text-slate-600 mt-1 text-sm">
+        Permite que professores e alunos reservem salas disponíveis para uso acadêmico.
+      </p>
+    </div>
+
+    <!-- Pré e Pós Condições -->
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div>
+        <span class="font-bold text-slate-700 block mb-1">Pré-condições:</span>
+        <ul class="list-disc list-inside text-slate-600">
+          <li>Usuário deve estar autenticado no sistema</li>
+          <li>Usuário deve ter acessado a visualização de salas disponíveis</li>
+        </ul>
+      </div>
+      <div>
+        <span class="font-bold text-slate-700 block mb-1">Pós-condições:</span>
+        <ul class="list-disc list-inside text-slate-600">
+          <li>Uma nova reserva é criada e associada ao usuário</li>
+          <li>O estado da sala é atualizado para "Reservada" no horário solicitado</li>
+          <li>Usuário recebe confirmação da reserva</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fluxo Principal -->
+    <div>
+      <span class="font-bold text-slate-700 block mb-2">Fluxo Principal:</span>
+      <ol class="list-decimal list-inside text-slate-600 space-y-1 text-sm bg-slate-50 p-4 rounded border border-slate-100">
+        <li>O usuário seleciona a opção "Reservar Sala" a partir da lista de salas disponíveis</li>
+        <li>O sistema exibe um formulário de reserva com dados da sala selecionada</li>
+        <li>O usuário preenche os campos obrigatórios (data, horário) e confirma a reserva</li>
+        <li>O sistema valida os dados e verifica a disponibilidade da sala</li>
+        <li>O sistema registra a reserva e exibe mensagem de sucesso</li>
+      </ol>
+    </div>
+
+    <!-- Fluxos Alternativos/Exceção -->
+    <div class="text-sm">
+      <span class="font-bold text-slate-700 block mb-2">Fluxos Alternativos e de Exceção:</span>
+      <ul class="list-none space-y-2">
+        <li class="text-slate-600">
+          <span class="font-semibold text-slate-800">[FA-01]: Alterar Reserva</span> - 
+          O usuário pode selecionar "Alterar Reserva" durante o processo para modificar dados da reserva.
+        </li>
+        <li class="text-red-600">
+          <span class="font-semibold text-slate-800">[FE-01]: Conflito de Horário</span> - 
+          Se a sala já estiver reservada, o sistema informa o conflito e solicita novo horário.
+        </li>
+        <li class="text-red-600">
+          <span class="font-semibold text-slate-800">[FE-02]: Dados Inválidos</span> - 
+          Se dados forem inválidos, o sistema exibe erro específico e solicita correção.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UC-02: Cancelar Reserva -->
+  <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 space-y-6">
+    <!-- Cabeçalho do UC -->
+    <div class="border-b pb-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-mono bg-slate-200 px-2 py-1 rounded text-slate-700">UC-02</span>
+        <span class="text-sm text-slate-500">Prioridade: Alta</span>
+      </div>
+      <h4 class="text-xl font-bold text-slate-800">Cancelar Reserva</h4>
+      <p class="text-slate-600 mt-1 text-sm">
+        Permite que professores e alunos cancelem reservas por eles realizadas anteriormente.
+      </p>
+    </div>
+
+    <!-- Pré e Pós Condições -->
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div>
+        <span class="font-bold text-slate-700 block mb-1">Pré-condições:</span>
+        <ul class="list-disc list-inside text-slate-600">
+          <li>Usuário deve estar autenticado no sistema</li>
+          <li>Usuário deve ter pelo menos uma reserva ativa futura</li>
+        </ul>
+      </div>
+      <div>
+        <span class="font-bold text-slate-700 block mb-1">Pós-condições:</span>
+        <ul class="list-disc list-inside text-slate-600">
+          <li>A reserva selecionada é removida ou marcada como "Cancelada"</li>
+          <li>O estado da sala é atualizado para "Disponível" no horário reservado</li>
+          <li>Usuário recebe confirmação do cancelamento</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fluxo Principal -->
+    <div>
+      <span class="font-bold text-slate-700 block mb-2">Fluxo Principal:</span>
+      <ol class="list-decimal list-inside text-slate-600 space-y-1 text-sm bg-slate-50 p-4 rounded border border-slate-100">
+        <li>O usuário acessa a funcionalidade "Visualizar minhas reservas"</li>
+        <li>O sistema exibe uma lista com todas as reservas ativas do usuário</li>
+        <li>O usuário seleciona uma reserva e escolhe a ação "Cancelar Reserva"</li>
+        <li>O sistema exibe uma caixa de diálogo de confirmação</li>
+        <li>O usuário confirma o cancelamento</li>
+        <li>O sistema invalida a reserva e atualiza o status da sala</li>
+        <li>O sistema exibe mensagem de sucesso e atualiza a lista de reservas</li>
+      </ol>
+    </div>
+
+    <!-- Fluxos Alternativos/Exceção -->
+    <div class="text-sm">
+      <span class="font-bold text-slate-700 block mb-2">Fluxos Alternativos e de Exceção:</span>
+      <ul class="list-none space-y-2">
+        <li class="text-slate-600">
+          <span class="font-semibold text-slate-800">[FA-01]: Desistir do Cancelamento</span> - 
+          O usuário pode escolher "Manter Reserva" e o sistema retorna sem efetuar alterações.
+        </li>
+        <li class="text-red-600">
+          <span class="font-semibold text-slate-800">[FE-01]: Reserva Não Encontrada</span> - 
+          Se a reserva já foi cancelada ou não existe, o sistema informa o erro e encerra o caso de uso.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+      </section>
+
+      <!-- Seção 4: Modelagem Estrutural -->
+    <section class="mb-12">
+        <h2
+          class="text-2xl font-bold text-slate-800 border-l-4 border-orange-500 pl-4 mb-6"
+        >
+          4. Modelagem Estrutural
+        </h2>
+
+        <!-- 4.1 Diagrama de Classes -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold text-slate-700 mb-4">
+            4.1. Diagrama de Classes
+          </h3>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+            <div class="mermaid">
+            classDiagram
+              direction TB
+              
+              class Usuario {
+                -String id
+                -String nome
+                -String email
+                -String senha
+                -String tipo
+                +autenticar() Boolean
+                +alterarSenha() void
+                +visualizarPerfil() Usuario
+              }
+
+              class Professor {
+                -String departamento
+                -String matricula
+                +reservarSala() Reserva
+                +ministrarAula() void
+              }
+
+              class Aluno {
+                -String matricula
+                -String curso
+                -int semestre
+                +solicitarReserva() Reserva
+                +estudarGrupo() void
+              }
+
+              class Administrador {
+                -String cargo
+                +gerenciarSalas() void
+                +gerarRelatorios() Relatorio
+                +bloquearSala() void
+              }
+
+              class Sala {
+                -String id
+                -String numero
+                -int capacidade
+                -String[] recursos
+                -boolean disponivel
+                +verificarDisponibilidade() Boolean
+                +obterRecursos() String[]
+              }
+
+              class Reserva {
+                -String id
+                -Date data
+                -Time horarioInicio
+                -Time horarioFim
+                -String status
+                +criarReserva() void
+                +alterarReserva() void
+                +cancelarReserva() void
+                +validarHorario() Boolean
+              }
+
+              class SistemaReservas {
+                -List~Reserva~ reservas
+                -List~Sala~ salas
+                +buscarSalasDisponiveis() List~Sala~
+                +processarReserva() Reserva
+                +enviarNotificacao() void
+                +gerarRelatorioUso() Relatorio
+              }
+
+              class Relatorio {
+                -String id
+                -Date dataGeracao
+                -String tipo
+                -String dados
+                +gerarRelatorio() void
+                +exportarPDF() void
+              }
+
+              %% Relações de Herança
+              Usuario <|-- Professor
+              Usuario <|-- Aluno
+              Usuario <|-- Administrador
+
+              %% Associações
+              Usuario "1" --> "0..*" Reserva : faz
+              Sala "1" --> "0..*" Reserva : possui
+              SistemaReservas "1" --> "0..*" Reserva : gerencia
+              SistemaReservas "1" --> "0..*" Sala : controla
+              Administrador --> SistemaReservas : administra
+              SistemaReservas --> Relatorio : gera
+            </div>
+            <p class="text-sm text-slate-500 mt-2 italic text-center">
+              Figura 2: Diagrama de Classes - Estrutura de classes, atributos, métodos e relacionamentos do sistema.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção 5: Modelagem Comportamental -->
+      <section class="mb-12">
+        <h2
+          class="text-2xl font-bold text-slate-800 border-l-4 border-teal-500 pl-4 mb-6"
+        >
+          5. Modelagem Comportamental
+        </h2>
+
+        <!-- 5.1 Diagrama de Sequência -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold text-slate-700 mb-4">
+            5.1. Diagrama de Sequência - Reservar Sala
+          </h3>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+            <div class="mermaid">
+            sequenceDiagram
+              participant U as Usuário
+              participant SR as SistemaReservas
+              participant S as Sala
+              participant R as Reserva
+              participant BD as BancoDados
+
+              U->>SR: acessarSistema()
+              SR->>U: exibirTelaLogin()
+              U->>SR: autenticar(credenciais)
+              SR->>BD: validarUsuario(credenciais)
+              BD-->>SR: dadosUsuario
+              SR-->>U: autenticado = true
+
+              U->>SR: solicitarReserva()
+              SR->>U: exibirCalendarioSalas()
+              U->>SR: selecionarDataHorario(data, horario)
+              
+              SR->>S: verificarDisponibilidade(data, horario)
+              S-->>SR: disponivel = true
+              
+              U->>SR: confirmarReserva(sala, data, horario)
+              SR->>R: criarReserva(usuario, sala, data, horario)
+              R->>BD: salvarReserva(dados)
+              BD-->>R: reservaConfirmada
+              
+              R->>S: atualizarDisponibilidade(false)
+              R-->>SR: reservaCriada
+              SR->>U: enviarConfirmacao(reserva)
+              SR->>U: exibirComprovante(reserva)
+            </div>
+            <p class="text-sm text-slate-500 mt-2 italic text-center">
+              Figura 3: Diagrama de Sequência - Interação para o caso de uso "Reservar Sala".
+            </p>
+          </div>
+        </div>
+
+        <!-- 5.2 Diagrama de Estados -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold text-slate-700 mb-4">
+            5.2. Diagrama de Estados - Reserva
+          </h3>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+            <div class="mermaid">
+            stateDiagram-v2
+              [*] --> Pendente
+              Pendente --> Confirmada : reserva aprovada
+              Pendente --> Cancelada : usuário cancela
+              
+              Confirmada --> EmAndamento : horário iniciado
+              Confirmada --> Cancelada : usuário cancela
+              
+              EmAndamento --> Concluida : horário finalizado
+              EmAndamento --> Cancelada : administrador cancela
+              
+              Cancelada --> [*]
+              Concluida --> [*]
+
+              state Confirmada {
+                [*] --> Ativa
+                Ativa --> Suspensa : problema na sala
+                Suspensa --> Ativa : problema resolvido
+              }
+            </div>
+            <p class="text-sm text-slate-500 mt-2 italic text-center">
+              Figura 4: Diagrama de Estados - Ciclo de vida do objeto Reserva.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="text-center text-slate-400 text-sm mt-16 border-t pt-8 pb-8"
+      >
+        <p>Disciplina de Projeto e Desenvolvimento de Sistemas © 2025</p>
+      </footer>
+    </div>
+
+    <script>
+      // Verifica se a imagem carregou corretamente
+      window.addEventListener('load', function() {
+        const img = document.querySelector('img[src="DiagramaCasoDeUso.drawio.png"]');
+        if (img && img.naturalHeight === 0) {
+          img.style.display = 'none';
+          document.getElementById('fallback-diagram').style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
